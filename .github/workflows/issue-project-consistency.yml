@@ -1,0 +1,24 @@
+name: Issue Creation Consistency
+
+run-name: Asuring consistency over project boards for issue /#${{github.event.issue.number}}
+
+on:
+  issues:
+    types:
+      - created
+  workflow_dispatch:
+
+jobs:
+  no-backlog:
+    name: Check issue not created in backlog column
+    if: ${{ ver si necestiamos graphql }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Remove fromm sprint board
+        run: |
+          echo 'estoy funcionando'
+      
+  add-label:
+    name: Add label to issue
+    runs-on: ubuntu-latest
+     
